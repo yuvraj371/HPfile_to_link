@@ -75,7 +75,7 @@ Press the button and make ytml folder and deploy on Render
 
 
 ```py
-git clone https://github.com/harshil8981/HPfile_to_link
+git clone https://github.com/yuvraj371/HPfile_to_link
 cd HPfile_to_link
 virtualenv -p /usr/bin/python3 venv
 . ./venv/bin/activate
