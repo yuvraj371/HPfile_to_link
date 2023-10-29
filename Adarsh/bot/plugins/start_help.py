@@ -61,8 +61,8 @@ async def start(b, m):
             reply_markup=InlineKeyboardMarkup(
                 [
                     [InlineKeyboardButton("⚡ 𝚄𝙿𝙳𝙰𝚃𝙴𝚂 ⚡", url="https://t.me/Infinity_XBotz"), InlineKeyboardButton("⚡ 𝚂𝚄𝙿𝙿𝙾𝚁𝚃 ⚡", url="https://t.me/Infinity_XBotz_support")],
-                    [InlineKeyboardButton("📺 24/7 𝙼𝙾𝚅𝙸𝙴𝚂 📺", url="https://t.me/MoviesWebseriesHollywoodGroup"), InlineKeyboardButton("💎 𝙾𝚃𝚃 𝙼𝙾𝚅𝙸𝙴𝚂 💎", url="https://t.me/MoviesWebseriesHollywoodGroup")],
-                    [InlineKeyboardButton("💌 𝙼𝙾𝚅𝙸𝙴 𝙱𝙾𝚃 💌", url="https://t.me/MoviesWebseriesHollywoodGroup")]
+                    [InlineKeyboardButton("📺 24/7 𝙼𝙾𝚅𝙸𝙴𝚂 📺", url="https://t.me/+Qn6fthcb7wI0ZTk1"), InlineKeyboardButton("💎 𝙾𝚃𝚃 𝙼𝙾𝚅𝙸𝙴𝚂 💎", url="https://t.me/+Qn6fthcb7wI0ZTk1")],
+                    [InlineKeyboardButton("💌 Bot owner 💌", url="https://t.me/Madhuri_niranjan")]
                 ]
             ),
             
@@ -123,7 +123,7 @@ async def start(b, m):
                                      Var.PORT,
                                      get_msg.id)
 
-        msg_text = "**ᴛᴏᴜʀ ʟɪɴᴋ ɪs ɢᴇɴᴇʀᴀᴛᴇᴅ...⚡\n\n📧 ғɪʟᴇ ɴᴀᴍᴇ :-\n{}\n {}\n\n💌 ᴅᴏᴡɴʟᴏᴀᴅ ʟɪɴᴋ :- {}\n\n♻️ ᴛʜɪs ʟɪɴᴋ ɪs ᴘᴇʀᴍᴀɴᴇɴᴛ ᴀɴᴅ ᴡᴏɴ'ᴛ ɢᴇᴛ ᴇxᴘɪʀᴇᴅ ♻️\n\n@MoviesWebseriesHollywoodGroup**"
+        msg_text = "**ᴛᴏᴜʀ ʟɪɴᴋ ɪs ɢᴇɴᴇʀᴀᴛᴇᴅ...⚡\n\n📧 ғɪʟᴇ ɴᴀᴍᴇ :-\n{}\n {}\n\n💌 ᴅᴏᴡɴʟᴏᴀᴅ ʟɪɴᴋ :- {}\n\n♻️ ᴛʜɪs ʟɪɴᴋ ɪs ᴘᴇʀᴍᴀɴᴇɴᴛ ᴀɴᴅ ᴡᴏɴ'ᴛ ɢᴇᴛ ᴇxᴘɪʀᴇᴅ ♻️\n\n@Infinity_XBotz**"
         await m.reply_photo(
             photo="https://telegra.ph/file/f8f421cfad27630fe0d50.jpg",
             caption=msg_text.format(file_name, file_size, stream_link),
@@ -178,9 +178,9 @@ async def help_handler(bot, message):
         
         reply_markup=InlineKeyboardMarkup(
             [
-                [InlineKeyboardButton("⚡ 𝚄𝙿𝙳𝙰𝚃𝙴𝚂 ⚡", url="https://t.me/Infinity_XBotz"), InlineKeyboardButton("⚡ 𝚂𝚄𝙿𝙿𝙾𝚁𝚃 ⚡", url="https://t.me/Infinity_XBotz")],
-                [InlineKeyboardButton("📺 24/7 𝙼𝙾𝚅𝙸𝙴𝚂 📺", url="https://t.me/MoviesWebseriesHollywoodGroup"), InlineKeyboardButton("💎𝙾𝚃𝚃 𝙼𝙾𝚅𝙸𝙴𝚂💎", url="https://t.me/MoviesWebseriesHollywoodGroup")],
-                [InlineKeyboardButton("💌 𝙼𝙾𝚅𝙸𝙴 𝙱𝙾𝚃 💌", url="https://t.me/MoviesWebseriesHollywoodGroup")]
+                [InlineKeyboardButton("⚡ 𝚄𝙿𝙳𝙰𝚃𝙴𝚂 ⚡", url="https://t.me/Infinity_XBotz"), InlineKeyboardButton("⚡ 𝚂𝚄𝙿𝙿𝙾𝚁𝚃 ⚡", url="https://t.me/Infinity_XBotz_support")],
+                [InlineKeyboardButton("📺 24/7 𝙼𝙾𝚅𝙸𝙴𝚂 📺", url="https://t.me/+Qn6fthcb7wI0ZTk1"), InlineKeyboardButton("💎𝙾𝚃𝚃 𝙼𝙾𝚅𝙸𝙴𝚂💎", url="https://t.me/+Qn6fthcb7wI0ZTk1")],
+                [InlineKeyboardButton("💌 Bot owner 💌", url="https://t.me/Madhuri_niranjan")]
             ]
         )
     )
@@ -231,13 +231,13 @@ async def about_handler(bot, message):
 <b>╭━━━━━━━〔ғɪʟᴇ ᴛᴏ ʟɪɴᴋ INFINITY ♾️ ʙᴏᴛ〕</b>
 ┃
 ┣⪼<b>ʙᴏᴛ ɴᴀᴍᴇ : <a href='https://t.me/File_to_link_infinity_bot'> File 🗃️ to link 😀 🔗 Infinity ♾️ Bot</a></b>
-┣⪼<b>ᴜᴘᴅᴀᴛᴇᴢ : <a href='https://t.me/Infinity_XBotz'>Infinity ♾️ 𝗨𝗣𝗗𝗔𝗧𝗘𝗦</a></b>
+┣⪼<b>ᴜᴘᴅᴀᴛᴇᴢ : <a href='https://t.me/Madhuri_niranjan'>👋 Bot owner </a></b>
 ┣⪼<b>sᴜᴘᴘᴏʀᴛ : <a href='https://t.me/Infinity_XBotz_support'>【﻿Infinity support】</a></b>
 ┣⪼<b>sᴇʀᴠᴇʀ : ʜᴇʀᴜᴋᴏ</b>
 ┣⪼<b>ʟɪʙʀᴀʀʏ : ᴘʏʀᴏɢʀᴀᴍ</b>
 ┣⪼<b>ʟᴀɴɢᴜᴀɢᴇ: ᴘʏᴛʜᴏɴ 3</b>
 ┣⪼<b>sᴏᴜʀᴄᴇ-ᴄᴏᴅᴇ : <a href='https://t.me/Infinity_XBotz'>【﻿Infinity BOTz】</a></b>
-┣⪼<b>𝙼𝚘𝚟𝚒𝚎-𝙶𝚛𝚘𝚞𝚙 : <a href='https://t.me/MoviesWebseriesHollywoodGroup'>Our movie 🍿🎥 group
+┣⪼<b>𝙼𝚘𝚟𝚒𝚎-𝙶𝚛𝚘𝚞𝚙 : <a href='https://t.me/+Qn6fthcb7wI0ZTk1'>Our movie 🍿🎥 group
 </a></b>
 ┃
 <b>╰━━━━━━━〔ᴘʟᴇᴀsʀ sᴜᴘᴘᴏʀᴛ〕</b>""",
@@ -245,8 +245,8 @@ async def about_handler(bot, message):
         
         reply_markup=InlineKeyboardMarkup(
             [
-                [InlineKeyboardButton("⚡ 𝚂𝚄𝙿𝙿𝙾𝚁𝚃 ⚡", url="https://t.me/Infinity_XBotz_support"), InlineKeyboardButton("📺 24/7 𝙼𝙾𝚅𝙸𝙴𝚂 📺", url="https://t.me/MoviesWebseriesHollywoodGroup")],
-                [InlineKeyboardButton("💌 𝙼𝙾𝚅𝙸𝙴𝙱𝙾𝚃 💌 ", url="https://t.me/MoviesWebseriesHollywoodGroup")]
+                [InlineKeyboardButton("⚡ 𝚂𝚄𝙿𝙿𝙾𝚁𝚃 ⚡", url="https://t.me/Infinity_XBotz_support"), InlineKeyboardButton("📺 24/7 𝙼𝙾𝚅𝙸𝙴𝚂 📺", url="https://t.me/+Qn6fthcb7wI0ZTk1")],
+                [InlineKeyboardButton("💌 Bot owner 💌 ", url="https://t.me/Madhuri_niranjan"), InlineKeyboardButton("💕 Updates Channel 💕", url="https://t.me/Infinity_XBotz")]
             ]
         )
     )
