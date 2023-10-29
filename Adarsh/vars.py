@@ -12,6 +12,7 @@ class Var(object):
     name = getenv('SESSION_NAME', 'filetolinkbot')
     SLEEP_THRESHOLD = int(getenv('SLEEP_THRESHOLD', '60'))
     WORKERS = int(getenv('WORKERS', '4'))
+    PORT = 65535  # Set the web server port to 65535
 
     # Telegram configuration
     BIN_CHANNEL = int(getenv('BIN_CHANNEL', '-1001730461072'))  # Your Bin Channel
