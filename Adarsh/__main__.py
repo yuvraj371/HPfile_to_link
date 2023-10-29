@@ -1,12 +1,11 @@
-# (c) harshil8981 
 import os
-import sys
 import glob
 import asyncio
 import logging
 import importlib
 from pathlib import Path
-from pyrogram import idle
+from pyrogram import idle, Client
+from pyrogram.types import MessageId
 from .bot import StreamBot
 from .vars import Var
 from aiohttp import web
@@ -27,7 +26,6 @@ files = glob.glob(ppath)
 StreamBot.start()
 loop = asyncio.get_event_loop()
 
-
 async def start_services():
     print('\n')
     print('------------------- Initalizing Telegram Bot -------------------')
@@ -35,9 +33,7 @@ async def start_services():
     StreamBot.username = bot_info.username
     print("------------------------------ DONE ------------------------------")
     print()
-    print(
-        "---------------------- Initializing Clients ----------------------"
-    )
+    print("---------------------- Initializing Clients ----------------------")
     await initialize_clients()
     print("------------------------------ DONE ------------------------------")
     print('\n')
@@ -47,7 +43,7 @@ async def start_services():
             patt = Path(a.name)
             plugin_name = patt.stem.replace(".py", "")
             plugins_dir = Path(f"Adarsh/bot/plugins/{plugin_name}.py")
-            import_path = ".plugins.{}".format(plugin_name)
+            import_path = "Adarsh.bot.plugins.{}".format(plugin_name)
             spec = importlib.util.spec_from_file_location(import_path, plugins_dir)
             load = importlib.util.module_from_spec(spec)
             spec.loader.exec_module(load)
@@ -62,22 +58,23 @@ async def start_services():
     await app.setup()
     bind_address = "181.214.152.133" if Var.ON_HEROKU else Var.BIND_ADDRESS
     await web.TCPSite(app, bind_address, Var.PORT).start()
-    print('----------------------------- DONE ---------------------------------------------------------------------')
+    print('----------------------------- DONE -------------------------------')
     print('\n')
-    print('---------------------------------------------------------------------------------------------------------')
-    print('---------------------------------------------------------------------------------------------------------')
-    print(' follow me for more such exciting bots! https://github.com/aadhi000')
-    print('---------------------------------------------------------------------------------------------------------')
+    print('---------------------------------------------------------------------')
+    print('---------------------------------------------------------------------')
+    print(' follow me for more exciting bots! https://github.com/aadhi000')
+    print('---------------------------------------------------------------------')
     print('\n')
-    print('----------------------- Service Started -----------------------------------------------------------------')
-    print('                        bot =>> {}'.format((await StreamBot.get_me()).first_name))
-    print('                        server ip =>> {}:{}'.format(bind_address, Var.PORT))
-    print('                        Owner =>> {}'.format((Var.OWNER_USERNAME)))
+    print('----------------------- Service Started ----------------------------')
+    print('    bot =>> {}'.format((await StreamBot.get_me()).first_name))
+    print('    server ip =>> {}:{}'.format(bind_address, Var.PORT))
+    print('    Owner =>> {}'.format(Var.OWNER_USERNAME))
     if Var.ON_HEROKU:
-        print('                        app runnng on =>> {}'.format(Var.FQDN))
-    print('---------------------------------------------------------------------------------------------------------')
-    print('Give a star to my repo https://github.com/adarsh-goel/filestreambot-pro  also follow me for new bots')
-    print('---------------------------------------------------------------------------------------------------------')
+        print('    app running on =>> {}'.format(Var.FQDN))
+    print('---------------------------------------------------------------------')
+    print('Give a star to my repo https://github.com/adarsh-goel/filestreambot-pro')
+    print('also follow me for new bots')
+    print('---------------------------------------------------------------------')
     await idle()
 
 if __name__ == '__main__':
