@@ -1,3 +1,4 @@
+import sys
 import os
 import glob
 import asyncio
@@ -5,7 +6,6 @@ import logging
 import importlib
 from pathlib import Path
 from pyrogram import idle, Client
-from pyrogram.types import MessageId
 from .bot import StreamBot
 from .vars import Var
 from aiohttp import web
