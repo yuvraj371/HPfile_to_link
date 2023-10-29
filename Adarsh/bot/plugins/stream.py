@@ -29,13 +29,13 @@ async def private_receive_handler(c: Client, m: Message):
             if user.status == enums.ChatMemberStatus.BANNED:
                 await c.send_message(
                     chat_id=m.chat.id,
-                    text="You are banned due to violating rules."
+                    text="You are banned due to violating rules🙂.."
                 )
                 return
         except UserNotParticipant:
             await c.send_message(
                 chat_id=m.chat.id,
-                text="Join my updates channel to use me.",
+                text="<i>ᴊᴏɪɴ ᴍʏ ᴜᴘᴅᴀᴛᴇs ᴄʜᴀɴɴᴇʟ ᴛᴏ ᴜsᴇ ᴍᴇ..**</i>",
                 reply_markup=InlineKeyboardMarkup(
                     [
                         [
@@ -56,13 +56,18 @@ async def private_receive_handler(c: Client, m: Message):
         log_msg = await m.forward(chat_id=Var.BIN_CHANNEL)
         stream_link = f"{Var.URL}watch/{str(log_msg.id)}/{quote_plus(get_name(log_msg))}?hash={get_hash(log_msg)}"
         online_link = f"{Var.URL}{str(log_msg.id)}/{quote_plus(get_name(log_msg))}?hash={get_hash(log_msg)}"
-        msg_text = """
-        File Name: {0}
-        File Size: {1}
-        Download Link: {2}
-        Watch Online: {3}
-        This link is permanent and won't get expired
-        """.format(get_name(log_msg), humanbytes(get_media_file_size(m)), online_link, stream_link)
+        msg_text ="""
+<b>ʏᴏᴜʀ ʟɪɴᴋ ɪs ɢᴇɴᴇʀᴀᴛᴇᴅ...⚡
+
+<b>📧 ғɪʟᴇ ɴᴀᴍᴇ :- </b> <i><b>{}</b></i>
+
+<b>📦 ғɪʟᴇ sɪᴢᴇ :- </b> <i><b>{}</b></i>
+
+<b>💌 ᴅᴏᴡɴʟᴏᴀᴅ ʟɪɴᴋ :- </b> <i><b>{}</b></i>
+
+<b>🖥 ᴡᴀtᴄʜ ᴏɴʟɪɴᴇ :- </b> <i><b>{}</b></i>
+
+<b>♻️ ᴛʜɪs ʟɪɴᴋ ɪs ᴘᴇʀᴍᴀɴᴇɴᴛ ᴀɴᴅ ᴡᴏɴ'ᴛ ɢᴇᴛs ᴇxᴘɪʀᴇᴅ ♻️\n\n@Infinity_XBotz</b>""".format(get_name(log_msg), humanbytes(get_media_file_size(m)), online_link, stream_link)
         await log_msg.reply_text(
             text=f"Requested by: [{m.from_user.first_name}](tg://user?id={m.from_user.id})\nUser ID: `{m.from_user.id}`\nStream Link: {stream_link}",
             disable_web_page_preview=True,
@@ -73,8 +78,8 @@ async def private_receive_handler(c: Client, m: Message):
             quote=True,
             disable_web_page_preview=True,
             reply_markup=InlineKeyboardMarkup([
-                [InlineKeyboardButton("Watch", url=stream_link),
-                 InlineKeyboardButton('Download', url=online_link)]
+                [InlineKeyboardButton("⚡Watch⚡", url=stream_link),
+                 InlineKeyboardButton('⚡Download⚡', url=online_link)]
             ])
         )
     except FloodWait as e:
@@ -99,8 +104,8 @@ async def channel_receive_handler(bot, broadcast):
             chat_id=broadcast.chat.id,
             id=broadcast.id,
             reply_markup=InlineKeyboardMarkup([
-                [InlineKeyboardButton("Watch", url=stream_link),
-                 InlineKeyboardButton('Download', url=online_link)]
+                [InlineKeyboardButton("⚡Watch⚡", url=stream_link),
+                 InlineKeyboardButton('⚡Download⚡', url=online_link)]
             ])
         )
     except FloodWait as w:
