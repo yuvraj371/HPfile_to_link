@@ -1,6 +1,5 @@
 import os
 import asyncio
-from asyncio import TimeoutError
 from Adarsh.bot import StreamBot
 from Adarsh.utils.database import Database
 from Adarsh.utils.human_readable import humanbytes
@@ -11,6 +10,7 @@ from pyrogram.errors import FloodWait, UserNotParticipant
 from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton
 
 from Adarsh.utils.file_properties import get_name, get_hash, get_media_file_size
+
 db = Database(Var.DATABASE_URL, Var.name)
 
 MY_PASS = None  # Remove password
@@ -56,18 +56,19 @@ async def private_receive_handler(c: Client, m: Message):
         log_msg = await m.forward(chat_id=Var.BIN_CHANNEL)
         stream_link = f"{Var.URL}watch/{str(log_msg.id)}/{quote_plus(get_name(log_msg))}?hash={get_hash(log_msg)}"
         online_link = f"{Var.URL}{str(log_msg.id)}/{quote_plus(get_name(log_msg))}?hash={get_hash(log_msg)}"
-        msg_text ="""
-<b>ʏᴏᴜʀ ʟɪɴᴋ ɪs ɢᴇɴᴇʀᴀᴛᴇᴅ...⚡
+        msg_text = f"""
+<b>Your link is generated...⚡</b>
 
-<b>📧 ғɪʟᴇ ɴᴀᴍᴇ :- </b> <i><b>{}</b></i>
+<b>📧 File Name:</b> <i><b>{get_name(log_msg)}</b></i>
 
-<b>📦 ғɪʟᴇ sɪᴢᴇ :- </b> <i><b>{}</b></i>
+<b>📦 File Size:</b> <i><b>{humanbytes(get_media_file_size(m))}</b></i>
 
-<b>💌 ᴅᴏᴡɴʟᴏᴀᴅ ʟɪɴᴋ :- </b> <i><b>{}</b></i>
+<b>💌 Download Link:</b> <i><b>{online_link}</b></i>
 
-<b>🖥 ᴡᴀtᴄʜ ᴏɴʟɪɴᴇ :- </b> <i><b>{}</b></i>
+<b>🖥 Watch Online:</b> <i><b>{stream_link}</b></i>
 
-<b>♻️ ᴛʜɪs ʟɪɴᴋ ɪs ᴘᴇʀᴍᴀɴᴇɴᴛ ᴀɴᴅ ᴡᴏɴ'ᴛ ɢᴇᴛs ᴇxᴘɪʀᴇᴅ ♻️\n\n@Infinity_XBotz</b>""".format(get_name(log_msg), humanbytes(get_media_file_size(m)), online_link, stream_link)
+<b>♻️ This link is permanent and won't get expired ♻️\n\n@Infinity_XBotz</b>
+"""
         await log_msg.reply_text(
             text=f"Requested by: [{m.from_user.first_name}](tg://user?id={m.from_user.id})\nUser ID: `{m.from_user.id}`\nStream Link: {stream_link}",
             disable_web_page_preview=True,
@@ -99,14 +100,6 @@ async def channel_receive_handler(bot, broadcast):
         await log_msg.reply_text(
             text=f"Channel Name: `{broadcast.chat.title}`\nChannel ID: `{broadcast.chat.id}`\nRequest URL: {stream_link}",
             quote=True
-        )
-        await bot.edit_message_reply_markup(
-            chat_id=broadcast.chat.id,
-            messageid=broadcast.id,
-            reply_markup=InlineKeyboardMarkup([
-                [InlineKeyboardButton("⚡Watch⚡", url=stream_link),
-                 InlineKeyboardButton('⚡Download⚡', url=online_link)]
-            ])
         )
     except FloodWait as w:
         print(f"Sleeping for {str(w.x)}s")
