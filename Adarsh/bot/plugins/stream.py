@@ -102,7 +102,7 @@ async def channel_receive_handler(bot, broadcast):
         )
         await bot.edit_message_reply_markup(
             chat_id=broadcast.chat.id,
-            id=broadcast.id,
+            messageid=broadcast.id,
             reply_markup=InlineKeyboardMarkup([
                 [InlineKeyboardButton("⚡Watch⚡", url=stream_link),
                  InlineKeyboardButton('⚡Download⚡', url=online_link)]
