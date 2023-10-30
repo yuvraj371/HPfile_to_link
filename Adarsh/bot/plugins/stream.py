@@ -1,5 +1,6 @@
 import os
 import asyncio
+from asyncio import TimeoutError
 from Adarsh.bot import StreamBot
 from Adarsh.utils.database import Database
 from Adarsh.utils.human_readable import humanbytes
@@ -10,7 +11,6 @@ from pyrogram.errors import FloodWait, UserNotParticipant
 from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton
 
 from Adarsh.utils.file_properties import get_name, get_hash, get_media_file_size
-
 db = Database(Var.DATABASE_URL, Var.name)
 
 MY_PASS = None  # Remove password
@@ -101,6 +101,14 @@ async def channel_receive_handler(bot, broadcast):
             text=f"Channel Name: `{broadcast.chat.title}`\nChannel ID: `{broadcast.chat.id}`\nRequest URL: {stream_link}",
             quote=True
         )
+        await bot.edit_message_reply_markup(
+            chat_id=broadcast.chat.id,
+            id=broadcast.id,
+            reply_markup=InlineKeyboardMarkup([
+                [InlineKeyboardButton("⚡Watch⚡", url=stream_link),
+                 InlineKeyboardButton('⚡Download⚡', url=online_link)]
+            ])
+        )
     except FloodWait as w:
         print(f"Sleeping for {str(w.x)}s")
         await asyncio.sleep(w.x)
@@ -108,3 +116,4 @@ async def channel_receive_handler(bot, broadcast):
     except Exception as e:
         await bot.send_message(chat_id=Var.BIN_CHANNEL, text=f"Error Traceback: `{e}`", disable_web_page_preview=True)
         print(f"Can't Edit Broadcast Message!\nError: {e}")
+                
